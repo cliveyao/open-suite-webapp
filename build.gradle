@@ -64,7 +64,8 @@ task("dataImport", type: JavaExec) {
 
 task archiveReports(type: Zip) {
 	file("modules").traverse(type: groovy.io.FileType.DIRECTORIES, maxDepth: 1) { dir ->
-		if(new File(dir, "build.gradle").exists() && new File(dir, "/src/main/resources/reports").exists()) {
+		if(dir.name in ["axelor-exception", "axelor-tool", "axelor-admin", "axelor-message", "axelor-base", "axelor-project"]
+		&& new File(dir, "build.gradle").exists() && new File(dir, "/src/main/resources/reports").exists()) {
 			new File(dir, "/src/main/resources/reports/").listFiles().each { report ->
 				from report.getPath()
 			}

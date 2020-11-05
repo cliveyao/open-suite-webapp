@@ -3,7 +3,8 @@ rootProject.name = "axelor-erp"
 
 def modules = []
 file("modules").traverse(type: groovy.io.FileType.DIRECTORIES, maxDepth: 1) { it ->
-    if(new File(it, "build.gradle").exists()) { modules.add(it) }
+    if(it.name in ["axelor-exception", "axelor-tool", "axelor-admin", "axelor-message", "axelor-base", "axelor-project"]
+		&& new File(it, "build.gradle").exists()) { modules.add(it) }
 }
 
 gradle.ext.appModules = modules
