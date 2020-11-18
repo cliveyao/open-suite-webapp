@@ -1,6 +1,6 @@
 ## [6.0.1] (2020-10-22)
 
-#### Features
+#### Features 
 
 * Account: Add import of FEC file exported from accounting export.
 
